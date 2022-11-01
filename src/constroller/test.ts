@@ -14,14 +14,9 @@ const list = async (ctx: Context) => {
   };
 };
 
-const userInfo = async (ctx: Context): Promise<Response> => {
-  console.log("ctx.body", ctx.request.req);
-  ctx.body = ctx.request.req;
-  return {
-    status: 400,
-    message: "Not 400",
-    data: null,
-  };
+const userInfo = async (ctx: Context) => {
+  console.log("ctx.body", ctx.request.body);
+  ctx.body = ctx.request.body;
 };
 
 export { list, userInfo };

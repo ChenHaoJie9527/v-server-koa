@@ -1,4 +1,14 @@
 import { router } from "@/router";
+import KoaBodyParse from "koa-bodyparser";
+
+const koaBody = KoaBodyParse({
+  enableTypes: ["json", "form", "text", "xml"],
+  formLimit: "56kb",
+  jsonLimit: "1mb",
+  textLimit: "1mb",
+  xmlLimit: "1mb",
+  strict: true,
+});
 
 /**
  * 路由处理
@@ -10,4 +20,4 @@ const mdRoute = router.routes();
 */
 const mdRouterAllowed = router.allowedMethods();
 
-export const MDlist = [mdRoute, mdRouterAllowed];
+export const MDlist = [koaBody, mdRoute, mdRouterAllowed];
