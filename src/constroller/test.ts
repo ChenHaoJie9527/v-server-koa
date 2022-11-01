@@ -11,7 +11,10 @@ const list = async (ctx: Context) => {
 };
 
 const userInfo = async (ctx: Context) => {
-  ctx.body = ctx.request.body;
+  // ctx.body = ctx.request.body;
+  const data = "";
+  ctx.utils.assert(data, ctx.utils.throwError(10001, "验证码失效", 'error'));
+  ctx.body = "返回结果";
 };
 
 export { list, userInfo };

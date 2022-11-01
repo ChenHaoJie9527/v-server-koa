@@ -1,6 +1,8 @@
 import { router } from "@/router";
 import KoaBodyParse from "koa-bodyparser";
 import formidable from "./formidable";
+import { response } from "./response";
+import { error } from "./error";
 
 const mdFormidable = formidable();
 const koaBody = KoaBodyParse({
@@ -13,6 +15,16 @@ const koaBody = KoaBodyParse({
 });
 
 /**
+ * 统一返回格式
+ */
+const mdResHandler = response();
+
+/**
+ * 错误处理
+ */
+const mdErrorHandler = error();
+
+/**
  * 路由处理
  */
 const mdRoute = router.routes();
@@ -22,4 +34,11 @@ const mdRoute = router.routes();
 */
 const mdRouterAllowed = router.allowedMethods();
 
-export const MDlist = [mdFormidable, koaBody, mdRoute, mdRouterAllowed];
+export const MDlist = [
+  mdFormidable,
+  koaBody,
+  mdResHandler,
+  mdErrorHandler,
+  mdRoute,
+  mdRouterAllowed,
+];

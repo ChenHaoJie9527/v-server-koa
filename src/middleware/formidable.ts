@@ -4,7 +4,6 @@ import { Context, Next, Request } from "koa";
 import maps from "@/config";
 export default function () {
   return async function (ctx: Context, next: Next) {
-    console.log("`${maps.tempFilePath}`", `${maps.tempFilePath}`);
     if (ctx.url === "/test" && ctx.method === "POST") {
       const form = Formidable({
         multiples: true,
