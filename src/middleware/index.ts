@@ -1,6 +1,8 @@
 import { router } from "@/router";
 import KoaBodyParse from "koa-bodyparser";
+import formidable from "./formidable";
 
+const mdFormidable = formidable();
 const koaBody = KoaBodyParse({
   enableTypes: ["json", "form", "text", "xml"],
   formLimit: "56kb",
@@ -20,4 +22,4 @@ const mdRoute = router.routes();
 */
 const mdRouterAllowed = router.allowedMethods();
 
-export const MDlist = [koaBody, mdRoute, mdRouterAllowed];
+export const MDlist = [mdFormidable, koaBody, mdRoute, mdRouterAllowed];

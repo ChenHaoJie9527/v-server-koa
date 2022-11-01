@@ -1,9 +1,5 @@
 import { Context } from "koa";
-interface Response {
-  status: number;
-  message: string;
-  data: null | Record<string, any>;
-}
+
 const list = async (ctx: Context) => {
   ctx.body = {
     status: 200,
@@ -15,7 +11,6 @@ const list = async (ctx: Context) => {
 };
 
 const userInfo = async (ctx: Context) => {
-  console.log("ctx.body", ctx.request.body);
   ctx.body = ctx.request.body;
 };
 
