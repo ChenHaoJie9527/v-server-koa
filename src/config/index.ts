@@ -11,4 +11,5 @@ const configMap: Record<string, any> = {
   pro,
 };
 const maps = Object.assign(base, configMap[env]);
+
 export default maps;

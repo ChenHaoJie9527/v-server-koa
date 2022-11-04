@@ -17,7 +17,7 @@ export const compose = (middleware: any[]) => {
   // 返回的包装函数中间件
   // context =》 ctx 当前上下文 ctx 对象
   // next => 包装的promise中间件函数，第一次调用时候 next为undefined
-  return function (context: any, next: Next) {
+  return function (context: Context, next: Next) {
     // last called middleware #
     // 通过闭包用于记录中间件执行索引位置
     let index = -1;
@@ -53,7 +53,7 @@ export const compose = (middleware: any[]) => {
           return dispatch(i + 1)
         }
         */
-        // 所以在中间件中执行到 await next() 这一句的时候 执行 匿名函数 调用并返回 dispatch函数 而 dispatch函数会返回 promise.resolve 值是下一个中间件匿名函数 
+        // 所以在中间件中执行到 await next() 这一句的时候 执行 匿名函数 调用并返回 dispatch函数 而 dispatch函数会返回 promise.resolve 值是下一个中间件匿名函数
         // await next() => await dispatch(i + 1) => await Promise.resolve(middleware[i + 1])
       } catch (error) {
         // 异常处理

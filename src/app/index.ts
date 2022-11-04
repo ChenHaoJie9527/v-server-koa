@@ -3,11 +3,13 @@ const app = new Koa();
 import { MDlist } from "@/middleware";
 import utils from "@/utils";
 import { compose } from "@/hooks";
+import config from "@/config";
 // const compose = require("koa-compose");
 
 const port = "8002";
 const host = "0.0.0.0";
 
+app.context.config = config;
 app.context.utils = utils;
 app.use(compose(MDlist));
 

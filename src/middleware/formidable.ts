@@ -16,7 +16,7 @@ export default function () {
             reject(err);
           } else {
             ctx.request.body = fields;
-            // (ctx.request as Request & { files: any }).files = files;
+            (ctx.request as Request & { files: any }).files = files;
             resolve(true);
           }
         });
