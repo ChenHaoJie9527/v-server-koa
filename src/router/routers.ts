@@ -23,9 +23,4 @@ export const routers: Routers = [
     path: "/user",
     controller: test.getUserInfo,
   },
-  {
-    method: "get",
-    path: "/b",
-    controller: test.pathswer,
-  },
 ];
