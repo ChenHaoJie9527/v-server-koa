@@ -3,6 +3,8 @@ import KoaBodyParse from "koa-bodyparser";
 import formidable from "./formidable";
 import { response } from "./response";
 import { error } from "./error";
+import { Cors } from "./cors";
+import log from "./log";
 const mdFormidable = formidable();
 const koaBody = KoaBodyParse({
   enableTypes: ["json", "form", "text", "xml"],
@@ -12,6 +14,9 @@ const koaBody = KoaBodyParse({
   xmlLimit: "1mb",
   strict: true,
 });
+
+const mdCors = Cors;
+const mdLog = log();
 
 /**
  * 路由处理
@@ -38,6 +43,8 @@ export const MDlist = [
   mdRoute,
   mdFormidable,
   koaBody,
+  mdCors,
+  mdLog,
   mdResHandler,
   mdErrorHandler,
   mdRouterAllowed,
