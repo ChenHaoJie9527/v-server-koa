@@ -12,13 +12,12 @@ const list = async (ctx: Context) => {
 
 const test = async (ctx: Context) => {
   ctx.body = {
-    status: 500,
-    message: "failed",
+    status: 200,
+    message: "success",
     data: {
-      list: null,
+      list: [1, 2, 3],
     },
   };
-  
 };
 
 const getUserInfo = async (ctx: Context) => {
