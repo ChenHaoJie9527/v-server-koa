@@ -18,11 +18,21 @@ const test = async (ctx: Context) => {
 };
 
 const getUserInfo = async (ctx: Context) => {
-  ctx.body = "返回结果";
+  const { name, age } = ctx.query;
+  if (name === "user" && age === "18") {
+    ctx.body = {
+      status: 200,
+      data: {},
+      message: "susses",
+      error: null,
+    };
+    return;
+  }
+  ctx.body = {};
 };
 
 const pathswer = async (ctx: Context) => {
-  ctx.body = 'hello'
-}
+  ctx.body = "hello";
+};
 
 export { list, test, getUserInfo, pathswer };
